@@ -9,17 +9,17 @@ public class ProjectBDriver {
 	public static void main(String[] args) {
 		list = new LinkedFrontBackCappedList<Integer>(10);
 		
-//		runEmptyListTests();
-//		runAddToBackTests();
-//		runClearTests();
-//		runGetEntryTests();
-//		runAddToFrontTests();
-//		runContainsTests();
-//		runIndexOfTests();
-//		runLastIndexOfTests();
-//		runRemovesTests();
-//		runMixOfAddsRemovesTests();
-//		runTestsWithStrings();
+		runEmptyListTests();
+		runAddToBackTests();
+		runClearTests();
+		runGetEntryTests();
+		runAddToFrontTests();
+		runContainsTests();
+		runIndexOfTests();
+		runLastIndexOfTests();
+		runRemovesTests();
+		runMixOfAddsRemovesTests();
+		runTestsWithStrings();
 		
 		// UNCOMMENT IF COMPLETING THE EXTRA CREDIT
 		 runExtraCreditTests();

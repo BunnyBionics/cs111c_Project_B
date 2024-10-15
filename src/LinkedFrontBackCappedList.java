@@ -1,4 +1,4 @@
-public class LinkedFrontBackCappedList<T> implements FrontBackCappedList<T> {
+public class LinkedFrontBackCappedList<T extends Comparable<? super T>> implements FrontBackCappedList<T>, Comparable<LinkedFrontBackCappedList<T>> {
 
 	private Node head, tail;
 	private int size, capacity;
@@ -173,6 +173,22 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedList<T> {
 	@Override
 	public boolean isFull() {
 		return (size == capacity);
+	}
+
+	@Override
+	public int compareTo(LinkedFrontBackCappedList<T> other) {
+		Node currentNode = head;
+		Node otherNode = other.head;
+		while (currentNode != null && otherNode != null) {
+			if (!currentNode.data.equals(otherNode.data)) {
+				return currentNode.data.compareTo(otherNode.data);
+			}
+
+			currentNode = currentNode.next;
+			otherNode = otherNode.next;
+		}
+
+		return Integer.compare(size, other.size);
 	}
 
 	public class Node {
