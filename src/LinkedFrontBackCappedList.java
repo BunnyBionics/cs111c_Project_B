@@ -124,30 +124,40 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedList<T> {
 
 	@Override
 	public int indexOf(T anEntry) {
-		return 0;
+		Node current = head;
+		int position = 0;
+		while (current != null) {
+			if (current.data.equals(anEntry)) {
+				return position;
+			}
+
+			current = current.next;
+			position++;
+		}
+
+		return -1;
 	}
 
 	@Override
 	public int lastIndexOf(T anEntry) {
-		return 0;
+		Node current = head;
+		int position = 0;
+		int lastIndex = -1;
+		while (current != null) {
+			if (current.data.equals(anEntry)) {
+				lastIndex = position;
+			}
+
+			current = current.next;
+			position++;
+		}
+
+		return lastIndex;
 	}
 
 	@Override
 	public boolean contains(T anEntry) {
-//		if (size == 0) {
-//			return false;
-//		}
-//
-		Node current = head;
-		while (current != null) {
-			if (current.data.equals(anEntry)) {
-				return true;
-			}
-
-			current = current.next;
-		}
-
-		return false;
+		return (indexOf(anEntry) != -1);
 	}
 
 	@Override
